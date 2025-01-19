@@ -34,7 +34,7 @@ const ExploreSlider = ({ label, query, text }: Props) => {
         <Slider
           freeMode
           className="flex"
-          spaceBetween={50}
+          spaceBetween={25}
           autoHeight
           onReachEnd={() => refetch()}
           breakpoints={{

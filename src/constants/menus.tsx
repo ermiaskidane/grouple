@@ -56,14 +56,14 @@ export const GROUP_PAGE_MENU: MenuProps[] = [
     id: 0,
     label: "Group",
     icon: <Home />,
-    path: "/",
+    path: "/group/:groupId/channel/:channelId",
     section: true,
   },
   {
     id: 1,
     label: "Courses",
     icon: <Courses />,
-    path: "#pricing",
+    path: "/group/:groupId/courses",
     section: true,
   },
   {
@@ -76,19 +76,19 @@ export const GROUP_PAGE_MENU: MenuProps[] = [
     id: 3,
     label: "Members",
     icon: <PersonalDevelopment />,
-    path: "/explore",
+    path: "/group/:groupId/messages",
   },
   {
     id: 4,
     label: "About",
     icon: <Document />,
-    path: "/explore",
+    path: "/about/:groupId",
   },
   {
     id: 5,
     label: "Huddle",
     icon: <Chat />,
-    path: "/explore",
+    path: "/group/:groupId/huddle",
   },
 ]
 

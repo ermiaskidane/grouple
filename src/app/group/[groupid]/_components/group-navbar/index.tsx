@@ -8,10 +8,19 @@ import Link from "next/link"
 
 type MenuProps = {
   orientation: "mobile" | "desktop"
+  groupId: string
+  channelId: string
 }
 // WIP: link the group menus to approprate paths
-const Menu = ({ orientation }: MenuProps) => {
+const Menu = ({ orientation, groupId, channelId }: MenuProps) => {
   const { section, onSetSection } = useNavigation()
+
+  const getMenuPath = (path: string) => {
+    return path
+      .replace(":groupId", groupId)
+      .replace(":channelId", channelId)
+  }
+
   switch (orientation) {
     case "desktop":
       return (
@@ -19,7 +28,7 @@ const Menu = ({ orientation }: MenuProps) => {
           <CardContent className="p-0 flex gap-2">
             {GROUPLE_CONSTANTS.groupPageMenu.map((menuItem) => (
               <Link
-                href={menuItem.path}
+                href={getMenuPath(menuItem.path)}
                 onClick={() => onSetSection(menuItem.path)}
                 className={cn(
                   "rounded-xl flex gap-2 py-2 px-4 items-center",
@@ -42,7 +51,7 @@ const Menu = ({ orientation }: MenuProps) => {
         <div className="flex flex-col mt-10">
           {GROUPLE_CONSTANTS.groupPageMenu.map((menuItem) => (
             <Link
-              href={menuItem.path}
+              href={getMenuPath(menuItem.path)}
               onClick={() => onSetSection(menuItem.path)}
               className={cn(
                 "rounded-xl flex gap-2 py-2 px-4 items-center",

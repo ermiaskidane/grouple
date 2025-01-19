@@ -27,10 +27,12 @@ const CourseLayout = async ({ params, children }: CourseLayoutProps) => {
     <HydrationBoundary state={dehydrate(client)}>
       <div className="grid grid-cols-1 h-full lg:grid-cols-4 overflow-hidden">
         <div className="bg-themeBlack p-5 overflow-y-auto">
+          {/* optimistic UI Component of react query: help to display intantaneously */}
           <CreateCourseModule
             courseId={params.courseid}
             groupid={params.groupid}
           />
+          {/* new List UI Component  */}
           <CourseModuleList
             groupid={params.groupid}
             courseId={params.courseid}

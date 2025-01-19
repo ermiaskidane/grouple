@@ -12,6 +12,7 @@ type Props = {
   groupId: string
 }
 
+// WIP: make sure only the owner can edit the setting page
 const GroupSettingsForm = ({ groupId }: Props) => {
   const {
     data,
@@ -26,7 +27,7 @@ const GroupSettingsForm = ({ groupId }: Props) => {
     setOnDescription,
     onDescription,
   } = useGroupSettings(groupId)
-  console.log("::::A££A£A£A£A£A£",data, onJsonDescription)
+
   return (
     <form
       className="flex flex-col h-full w-full items-start gap-y-5"
@@ -117,3 +118,28 @@ const GroupSettingsForm = ({ groupId }: Props) => {
 }
 
 export default GroupSettingsForm
+
+
+// const getMenuPath = (menuItem: typeof GROUPLE_CONSTANTS.groupPageMenu[0]) => {
+//   if (menuItem.defaultPath && data?.channels?.[0]) {
+//     // For the default path (Group), use the first channel
+//     return `/group/${groupId}/channel/${data.channels[0].id}`
+//   }
+//   return `/group/${groupId}${menuItem.path}`
+// }
+
+// <Link
+//                 href={getMenuPath(menuItem)}
+//                 onClick={() => onSetSection(menuItem.path)}
+//                 className={cn(
+//                   "rounded-xl flex gap-2 py-2 px-4 items-center",
+//                   section === menuItem.path
+//                     ? "bg-[#09090B] border-[#27272A]"
+//                     : "",
+//                 )}
+//                 key={menuItem.id}
+//               >
+//                 {section === menuItem.path && menuItem.icon}
+//                 {menuItem.label}
+//               </Link>
+//             ))}

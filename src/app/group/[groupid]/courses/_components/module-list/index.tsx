@@ -14,7 +14,7 @@ type Props = {
   courseId: string
   groupid: string
 }
-
+// WIP: make sure only the owner can edit module and section datas
 const CourseModuleList = ({ courseId, groupid }: Props) => {
   const {
     data,
@@ -37,7 +37,29 @@ const CourseModuleList = ({ courseId, groupid }: Props) => {
     sectionInputRef,
     sectionUpdatePending,
     updateVariables,
+    moduleId
   } = useCourseModule(courseId, groupid)
+
+  // console.log("WWWWWWWWWWWWWWWWWWWW", data,
+  //   onEditModule,
+  //   edit,
+  //   // triggerRef,
+  //   inputRef,
+  //   variables,
+  //   pathname,
+  //   isPending,
+  //   groupOwner,
+  //   sectionVariables,
+  //   pendingSection,
+  //   mutateSection,
+  //   setActiveSection,
+  //   activeSection,
+  //   // contentRef,
+  //   onEditSection,
+  //   editSection,
+  //   sectionInputRef,
+  //   sectionUpdatePending,
+  //   updateVariables,)
 
   return (
     <div className="flex flex-col">
@@ -46,11 +68,12 @@ const CourseModuleList = ({ courseId, groupid }: Props) => {
           <GlobalAccordion
             edit={edit}
             ref={triggerRef}
-            editable={
-              <Input
+            // select only the module clicked to edit instead of all modules
+            editable={ module.id === moduleId ?
+              (<Input
                 ref={inputRef}
                 className="bg-themeBlack border-themeGray"
-              />
+              />) : module.title
             }
             onEdit={() => onEditModule(module.id)}
             id={module.id}

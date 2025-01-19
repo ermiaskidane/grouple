@@ -35,14 +35,14 @@ const ExplorePageContent = ({ layout, category }: Props) => {
         (layout === "SLIDER" ? (
           <>
             <ExploreSlider
+                label="Tech"
+                text="Join top performing groups on grouple."
+                query="tech"
+              />
+            <ExploreSlider
               label="Fitness"
               text="Join top performing groups on grouple."
               query="fitness"
-            />
-            <ExploreSlider
-              label="Lifestyle"
-              text="Join top performing groups on grouple."
-              query="lifestyle"
             />
             <ExploreSlider
               label="Music"

@@ -36,7 +36,6 @@ export const PostCard = ({
   optimisitc,
 }: PostCardProps) => {
   const pathname = usePathname()
-  console.log("KKKKKKKKKKKKK", optimisitc)
   return (
     <Card className="border-themeGray bg-[#1A1A1D] first-letter:rounded-2xl overflow-hidden">
       <CardContent className="p-3 flex flex-col gap-y-6 items-start">

@@ -14,7 +14,6 @@ type PostFeedProps = {
 
 export const PostFeed = ({ channelid, userid }: PostFeedProps) => {
   const { data } = useChannelPage(channelid)
-  console.log("MMMMMMMMMMMMMMMMMMM", data)
   const { posts } = data as {
     posts: ({
       likes: {

@@ -74,7 +74,7 @@ export const onGetCourseModules = async (courseId: string) => {
         courseId,
       },
       orderBy: {
-        createdAt: "desc",
+        createdAt: "asc",
       },
       include: {
         section: {
@@ -172,6 +172,7 @@ export const onUpdateSection = async (
   type: "NAME" | "COMPLETE",
   content: string,
 ) => {
+  // WIP: make the update for the specific user instead of all clients
   try {
     if (type === "NAME") {
       await client.section.update({

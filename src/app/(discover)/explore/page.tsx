@@ -22,8 +22,8 @@ const ExplorePage = async (props: Props) => {
   })
 
   await query.prefetchQuery({
-    queryKey: ["lifestyle"],
-    queryFn: () => onGetExploreGroup("lifestyle", 0),
+    queryKey: ["tech"],
+    queryFn: () => onGetExploreGroup("tech", 0),
   })
 
   return (

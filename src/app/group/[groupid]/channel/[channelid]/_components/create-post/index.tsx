@@ -50,6 +50,9 @@ const CreateNewPost = ({ channelid, userImage, username }: Props) => {
         <PostContent channelid={channelid} />
       </SimpleModal>
       {/* make visible instantaneously */}
+      {/* The current implementation with mutation.length works but is less efficient
+       and could potentially show duplicate posts during the update process.
+       So better to use the TanStack Query's built-in optimistic updates */}
       {mutation.length > 0 &&
         mutation[0].status === "pending" &&
         mutation[0].state && (

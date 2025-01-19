@@ -239,6 +239,8 @@ export const useCourseModule = (courseId: string, groupid: string) => {
 
   const onEditModuleName = (event: Event) => {
     if (inputRef.current && triggerRef.current) {
+      // if user click outside the trigger element proceed
+      // to execution to DB or set Edit to false
       if (
         !inputRef.current.contains(event.target as Node | null) &&
         !triggerRef.current.contains(event.target as Node | null)
@@ -275,6 +277,7 @@ export const useCourseModule = (courseId: string, groupid: string) => {
 
   useEffect(() => {
     document.addEventListener("click", onEditModuleName, false)
+    console.log("I am here@@@@@@@@@@@@@@@")
     return () => {
       document.removeEventListener("click", onEditModuleName, false)
     }
@@ -282,6 +285,7 @@ export const useCourseModule = (courseId: string, groupid: string) => {
 
   useEffect(() => {
     document.addEventListener("click", onEditSectionName, false)
+    console.log("I am here too#############")
     return () => {
       document.removeEventListener("click", onEditSectionName, false)
     }
@@ -315,6 +319,7 @@ export const useCourseModule = (courseId: string, groupid: string) => {
     editSection,
     sectionUpdatePending,
     updateVariables,
+    moduleId
   }
 }
 

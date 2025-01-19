@@ -15,6 +15,7 @@
 
 # production
 /build
+note.txt
 
 # misc
 .DS_Store

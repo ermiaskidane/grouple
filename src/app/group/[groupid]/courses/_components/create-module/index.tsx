@@ -31,6 +31,7 @@ export const CreateCourseModule = ({
           className="text-themeGray cursor-pointer hover:text-themeTextGray/60"
         />
       </div>
+      {/* This is the optimistic UI query: display instataneously */}
       {variables && isPending && (
         <GlobalAccordion id={variables.moduleId} title={variables.title}>
           <Button
