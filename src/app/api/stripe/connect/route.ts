@@ -5,7 +5,7 @@ import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   typescript: true,
-  apiVersion: "2024-06-20",
+  apiVersion: "2024-12-18.acacia",
 })
 
 export async function GET(req: NextRequest) {
@@ -19,8 +19,9 @@ export async function GET(req: NextRequest) {
       business_type: "individual",
     })
 
+    
     if (account) {
-      console.log(account)
+      console.log("EEEEEE", account)
       const user = await onAuthenticatedUser()
       const integrateStripeAccount = await client.user.update({
         where: {

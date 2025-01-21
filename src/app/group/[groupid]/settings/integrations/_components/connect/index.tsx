@@ -8,7 +8,7 @@ type StripeConnectProps = {
   connected: boolean
   groupid: string
 }
-
+// WIP: set UP properly the stripe connect on the api/stripe/connect folder to process correctly 
 export const StripeConnect = ({ connected, groupid }: StripeConnectProps) => {
   const { onStripeConnect, onStripeAccountPending } = useStripeConnect(groupid)
   return (

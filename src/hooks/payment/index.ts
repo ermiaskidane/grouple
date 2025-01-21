@@ -97,7 +97,7 @@ export const usePayments = (
         if (affiliate) {
           await onTransferCommission(stripeId!)
         }
-        // after commission create new grouple to the user
+        // after commission, create new grouple to the user
         const created = await onCreateNewGroup(userId, data)
         if (created && created.status === 200) {
           toast("Success", {

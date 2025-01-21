@@ -13,6 +13,7 @@ const GroupCreatePage = async ({
   const user = await onAuthenticatedUser()
 
   const affiliate = await onGetAffiliateInfo(searchParams.affiliate)
+  console.log("DDDDD", affiliate)
 
   if (!user || !user.id) redirect("/sign-in")
 

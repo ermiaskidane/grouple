@@ -88,7 +88,7 @@ export const GROUP_PAGE_MENU: MenuProps[] = [
     id: 5,
     label: "Huddle",
     icon: <Chat />,
-    path: "/group/:groupId/huddle",
+    path: "/group/:groupId/messages",
   },
 ]
 
