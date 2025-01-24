@@ -5,7 +5,13 @@ const isProtectedRoute = createRouteMatcher(["/group(.*)"])
 
 export default clerkMiddleware(async (auth, req) => {
   // const baseHost = "localhost:3000"
-  const baseHost = process.env.NEXT_PUBLIC_BASEHOST_URL!
+  const url = req.nextUrl.origin;
+  const urlObject = new URL(url);
+  const baseHost = urlObject.host; 
+  // console.log("SSSSSS", req.nextUrl.origin)
+
+  // const baseHost = process.env.NEXT_PUBLIC_BASEHOST_URL!
+
   const host = req.headers.get("host")
   const reqPath = req.nextUrl.pathname
   const origin = req.nextUrl.origin
