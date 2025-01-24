@@ -8,6 +8,7 @@ import { CheckBadge, Logout } from "@/icons"
 import { MenuIcon } from "lucide-react"
 import Link from "next/link"
 import { GroupDropDown } from "./group-dropdown"
+import LeftNavbar from "./left-navbar"
 
 export const Navbar = async () => {
   const user = await onAuthenticatedUser()
@@ -30,10 +31,11 @@ export const Navbar = async () => {
           </span>
         }
       >
-        {/* WIP: create the component for the content */}
-        <div>Content</div>
+        <LeftNavbar user={user} mobile/>
       </GlassSheet>
-      <div className="flex-1 lg:flex hidden justify-end gap-3">
+
+      <LeftNavbar user={user} />
+      {/* <div className="flex-1 lg:flex hidden justify-end gap-3">
         <Link href={user.status === 200 ? `/group/create` : "/sign-in"}>
           <Button
             variant="outline"
@@ -56,7 +58,7 @@ export const Navbar = async () => {
             </Button>
           </Link>
         )}
-      </div>
+      </div> */}
     </div>
   )
 }
