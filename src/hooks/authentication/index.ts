@@ -44,10 +44,26 @@ export const useAuthSignIn = () => {
         router.push("/callback/sign-in")
       }
     } catch (error: any) {
-      if (error.errors[0].code === "form_password_incorrect")
+      console.log("ffffffff", error)
+      if (error.error && error.error[0] && error.error[0].message) {
         toast("Error", {
-          description: "email/password is incorrect try again",
+          description: error.error[0].message,
         })
+      } else if (error.errors && error.errors[0]) {
+        if (error.errors[0].code === "form_password_incorrect") {
+          toast("Error", {
+            description: "email/password is incorrect try again",
+          })
+        } else if (error.errors[0].code === "form_identifier_not_found") {
+          toast("Error", {
+            description: error.errors[0].message,
+          })
+        }
+      } else {
+        toast("Error", {
+          description: "An unknown error occurred.",
+        })
+      }
     }
   }
 
@@ -109,8 +125,11 @@ export const useAuthSignUp = () => {
           description: "No fields must be empty",
         })
       }
-    } catch (error) {
-      console.error(JSON.stringify(error, null, 2))
+    } catch (error: any) {
+      toast("Error", {
+        description: error.errors[0].message,
+      })
+      // console.error(JSON.stringify(error, null, 2))
     }
   }
 

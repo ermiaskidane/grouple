@@ -1,6 +1,8 @@
 import SignUpForm from "@/components/forms/sign-up"
 import { GoogleAuthButton } from "@/components/global/google-oauth-button"
+import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
+import Link from "next/link"
 
 type Props = {}
 
@@ -20,6 +22,17 @@ const SignUpPage = (props: Props) => {
         <Separator orientation="horizontal" className="bg-themeGray" />
       </div>
       <GoogleAuthButton method="signup" />
+      <Button 
+        className="w-full rounded-2xl mt-6 text-center"
+        variant="ghost"
+      >
+        <Link
+          href="/sign-in"
+          className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white "
+        >
+          <span>Sign In</span>
+        </Link>
+      </Button>
     </>
   )
 }
