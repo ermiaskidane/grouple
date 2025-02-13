@@ -2,7 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
-import { Logout, Settings } from "@/icons"
+import { About, Buisness, Courses, Dashboard, Explore, GlobeDuoToneBlack, Home, HomeDuoToneWhite, Logout, Settings } from "@/icons"
 import { supabaseClient } from "@/lib/utils"
 import { onOffline } from "@/redux/slices/online-member-slice"
 import { AppDispatch } from "@/redux/store"
@@ -43,7 +43,10 @@ export const UserAvatar = ({ image, groupid, userid }: UserWidgetProps) => {
         </Avatar>
       }
     >
-      <Link href={`/group/${groupid}/settings`} className="flex gap-x-2 px-2">
+      <Link href={`/explore`} className="flex gap-x-2 px-2">
+        <Home /> Explore
+      </Link>
+      <Link href={`/group/${groupid}/settings`} className="flex gap-x-2 px-2 pt-2">
         <Settings /> Settings
       </Link>
       <Button

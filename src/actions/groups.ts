@@ -39,7 +39,7 @@ export const onGetAffiliateInfo = async (id: string) => {
     return { status: 400 }
   }
 }
-
+ 
 export const onCreateNewGroup = async (
   userId: string,
   data: z.infer<typeof CreateGroupSchema>,
