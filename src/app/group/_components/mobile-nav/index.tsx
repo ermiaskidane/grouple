@@ -6,9 +6,10 @@ import Link from "next/link"
 
 type Props = {
   groupid: string
+  userid: string
 }
 
-const MobileNav = async ({ groupid }: Props) => {
+const MobileNav = async ({ groupid, userid }: Props) => {
   const user = await currentUser()
 
   return (
@@ -20,7 +21,7 @@ const MobileNav = async ({ groupid }: Props) => {
       <Link href={`/group/${groupid}/messages`}>
         <Message className="h-7 w-7" />
       </Link>
-      <UserAvatar image={user?.imageUrl!} groupid={groupid} />
+      <UserAvatar image={user?.imageUrl!} groupid={groupid} userid={userid}/>
     </div>
   )
 }

@@ -10,6 +10,8 @@ import { useClerk } from "@clerk/nextjs"
 import Link from "next/link"
 import { useDispatch } from "react-redux"
 import { DropDown } from "../drop-down"
+import { useQuery } from "@tanstack/react-query"
+import { onGetGroupInfo } from "@/actions/groups"
 
 type UserWidgetProps = {
   image: string
@@ -24,6 +26,13 @@ export const UserAvatar = ({ image, groupid, userid }: UserWidgetProps) => {
   const untrackPresence = async () => {
     await supabaseClient.channel("tracking").untrack()
   }
+
+  const { data } = useQuery({
+    queryKey: ["group-info"],
+    queryFn: () => onGetGroupInfo(groupid!),
+  })
+
+  // console.log("FFFSSSS",groupid, userid, data)
 
   const dispatch: AppDispatch = useDispatch()
 
@@ -46,9 +55,14 @@ export const UserAvatar = ({ image, groupid, userid }: UserWidgetProps) => {
       <Link href={`/explore`} className="flex gap-x-2 px-2">
         <Home /> Explore
       </Link>
-      <Link href={`/group/${groupid}/settings`} className="flex gap-x-2 px-2 pt-2">
-        <Settings /> Settings
-      </Link>
+
+      {/* Only Admin get Access */}
+      {userid === data?.group?.userId && (
+        <Link href={`/group/${groupid}/settings`} className="flex gap-x-2 px-2 pt-2">
+          <Settings /> Settings
+        </Link>
+      )}
+
       <Button
         onClick={onLogout}
         variant="ghost"
